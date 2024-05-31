@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="https:www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>employee_edit</title>
+</head>
+</head>
+<body>
+<th:block th:insert="Header.html"></th:block>
+<div class="container-fluid">
+
+
+		<div class="card-body">
+			<form action="/employee" method="post" th:object=${emodel}>
+
+				<div class="card-header text-center text-White bg-primary">
+					<h5>Employee Details</h5>
+
+				</div>
+
+
+				<div class="card-body">
+					<div class="row p-2">
+						<div class="col-4">
+							<b>Fname</b>
+						</div>
+						<div class="col-6">
+							<input type="text" th:field="*{fname}"class="form-control">
+						</div>
+						<div class="card-body">
+							<div class="row p-2">
+								<div class="col-4">
+									<b>Lname</b>
+								</div>
+								<div class="col-6">
+									<input type="text" th:field="*{lname}" class="form-control">
+								</div>
+
+							</div>
+							<div class="row p-2">
+								<div class="col-4">
+									<b>Gender</b>
+								</div>
+								<div class="col-6">
+									<input type="radio" th:field= "*{gender}"  value="male"> Male
+									<input type="radio" th:field= "*{gender}"  value="female"> Female
+									<input type="radio" th:field= "*{gender}" value="other" > Other
+									
+								</div>
+							</div>
+							
+							<div class="row p-2">
+								<div class="col-4">
+									<b>DoB</b>
+								</div>
+								<div class="col-6">
+									<input type="date" th:field="*{dob}" class="form-control">
+								</div>
+
+							</div>
+							
+							<div class="row p-2">
+								<div class="col-4">
+									<b>Phone</b>
+								</div>
+								<div class="col-6">
+									<input type="text" th:field="*{phone}" class="form-control">
+								</div>
+
+							</div>
+							<div class="row p-2">
+								<div class="col-4">
+									<b>Email-Id</b>
+								</div>
+								<div class="col-6">
+									<input type="text" th:field="*{email}" class="form-control">
+								</div>
+
+							</div>
+							<div class="row p-2">
+								<div class="col-4">
+									<b>Company Name</b>
+								</div>
+								<div class="col-6">
+									<input type="text" th:field="*{companyname}" class="form-control">
+								</div>
+
+							</div>
+							
+							<div class="row p-2">
+								<div class="col-4">
+									<b>Salary</b>
+								</div>
+								<div class="col-6">
+									<input type="number" th:field="*{salary}" class="form-control">
+								</div>
+
+							</div>
+							<div class="row p-2">
+								<div class="col-4"><b>Departments</b>
+								</div>
+								<div class="col-6">
+									<select th:field="*{departments}" id="departments" class="form-control">
+									<option value="">select</option>
+									<option th:each="dept: ${dlist}" th:value="${dept.id}">[[${dept.dept_name}]]</option>  
+									
+									</select>
+									
+								</div>
+
+							</div>
+							<div class="row p-2">
+								<div class="col-4">
+									<b>JoinDate</b>
+								</div>
+								<div class="col-6">
+									<input type="date" th:field="*{joindate}" class="form-control">
+								</div>
+
+							</div>
+							<div class="row p-2">
+								<div class="col-4">
+									<b>Post</b>
+								</div>
+								<div class="col-6">
+									<input type="text" th:field="*{post}" class="form-control">
+								</div>
+
+							</div>
+							
+							<div class="row p-2">
+								<div class="col-4">
+									<b>Country</b>
+								</div>
+								<div class="col-6">
+									<input type="text" th:field="*{address.country}" class="form-control">
+								</div>
+
+							</div>
+							
+							<div class="row p-2">
+								<div class="col-4">
+									<b>Projects</b>
+								</div>
+								<div class="col-6">
+									<input type="checkbox" th:field="*{projects}" value="project-1">Project-1
+									<input type="checkbox" th:field="*{projects}" value="project-2">Project-2
+									<input type="checkbox" th:field="*{projects}" value="project-3">Project-3
+									<input type="checkbox" th:field="*{projects}" value="project-4">Project-4
+									<input type="checkbox" th:field="*{projects}" value="project-5">Project-5
+								</div>
+
+							</div>
+
+
+
+							<div class="row p-2">
+								<div class="col-4"></div>
+									<div class="col-6">
+										<input type="Submit" value="Update" class="btn btn-success">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<input type ="hidden" th:field="*{id}">
+			</form>
+		</div>
+
+
+		<div class="card-footer  bg-warning text-center">
+			bin-copyright@2024</div>
+
+	</div>
+</body>
+</html>
